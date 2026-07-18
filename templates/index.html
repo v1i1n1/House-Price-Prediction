@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>House Price Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🏡 House Price Prediction</h1>
+
+        <p>Enter the house details below to predict the estimated selling price.</p>
+
+        <form action="/predict" method="POST">
+
+            <label>Overall Quality</label><br>
+            <input
+                type="number"
+                name="OverallQual"
+                placeholder="Enter Overall Quality"
+                required
+            ><br><br>
+
+            <label>Living Area</label><br>
+            <input
+                type="number"
+                name="GrLivArea"
+                placeholder="Enter Living Area"
+                required
+            ><br><br>
+
+            <label>Garage Cars</label><br>
+            <input
+                type="number"
+                name="GarageCars"
+                placeholder="Enter Number of Garage Cars"
+                required
+            ><br><br>
+
+            <label>Garage Area</label><br>
+            <input
+                type="number"
+                name="GarageArea"
+                placeholder="Enter Garage Area"
+                required
+            ><br><br>
+
+            <label>Total Basement Area</label><br>
+            <input
+                type="number"
+                name="TotalBsmtSF"
+                placeholder="Enter Basement Area"
+                required
+            ><br><br>
+
+            <label>First Floor Area</label><br>
+            <input
+                type="number"
+                name="1stFlrSF"
+                placeholder="Enter First Floor Area"
+                required
+            ><br><br>
+
+            <label>Full Bathrooms</label><br>
+            <input
+                type="number"
+                name="FullBath"
+                placeholder="Enter Number of Bathrooms"
+                required
+            ><br><br>
+
+            <label>Year Built</label><br>
+            <input
+                type="number"
+                name="YearBuilt"
+                placeholder="Enter Year Built"
+                required
+            ><br><br>
+
+            <label>Year Remodeled</label><br>
+            <input
+                type="number"
+                name="YearRemodAdd"
+                placeholder="Enter Year Remodeled"
+                required
+            ><br><br>
+
+            <label>Lot Area</label><br>
+            <input
+                type="number"
+                name="LotArea"
+                placeholder="Enter Lot Area"
+                required
+            ><br><br>
+
+            <input type="submit" value="🔮 Predict Price">
+
+            <input type="reset" value="🗑 Clear">
+
+        </form>
+
+        {% if prediction %}
+
+        <h2>💰 Predicted House Price</h2>
+
+        <h3>₹ {{ prediction }}</h3>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>
