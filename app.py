@@ -47,7 +47,7 @@ def predict():
 
     return render_template(
     "index.html",
-    prediction=round(prediction[0], 2)
+    prediction="{:,.2f}".format(prediction[0])
 )
 
 import os
